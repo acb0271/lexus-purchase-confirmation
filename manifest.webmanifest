@@ -1,0 +1,10 @@
+{
+  "name": "購車條件確認書",
+  "short_name": "購車確認書",
+  "lang": "zh-Hant",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#edf0ef",
+  "theme_color": "#183b3d"
+}
