@@ -67,7 +67,7 @@ function fillSignatureDates(){const value=currentLocalDateTime();for(const name 
 const loanFields=document.querySelector('.loan-fields');
 function updatePaymentUI(){const type=document.querySelector('[name=paymentType]:checked')?.value||'';loanFields.hidden=type!=='貸款';if(type==='貸款')calculateMonthlyPayment()}
 function calculateRewardPoints(){const amount=Number(document.querySelector('[name=payAmount]').value)||0;document.querySelector('[name=points]').value=amount?String(Math.round(amount*10000*0.006)):''}
-function calculateMonthlyPayment(){const amount=Number(document.querySelector('[name=loanAmount]').value),months=Number(document.querySelector('[name=loanTerms]').value),annualRate=3.25/100,p=document.querySelector('[name=monthlyPayment]');if(!amount||!months){p.value='';return}const r=annualRate/12,principal=amount*10000;p.value=String(Math.round(principal*r/(1-Math.pow(1+r,-months))))}
+function calculateMonthlyPayment(){const amount=Number(document.querySelector('[name=loanAmount]').value),months=Number(document.querySelector('[name=loanTerms]').value),annualRate=3/100,p=document.querySelector('[name=monthlyPayment]');if(!amount||!months){p.value='';return}const r=annualRate/12,principal=amount*10000;p.value=String(Math.round(principal*r/(1-Math.pow(1+r,-months))))}
 document.querySelectorAll('[name=paymentType]').forEach(el=>el.addEventListener('change',updatePaymentUI));document.querySelector('[name=loanAmount]').addEventListener('input',calculateMonthlyPayment);document.querySelector('[name=loanTerms]').addEventListener('change',calculateMonthlyPayment);document.querySelector('[name=payAmount]').addEventListener('input',calculateRewardPoints);
 const insurance=['甲式','乙式','車體險','強制險','竊盜險','超額險','意外險','乘客險','代步車險','高額零配件險'];
 const insuranceBox=document.querySelector('.insurance');insuranceBox.innerHTML=insurance.map(x=>`<label><input type="checkbox" name="insurance" value="${x}"> ${x}</label>`).join('');
@@ -92,6 +92,7 @@ document.querySelectorAll('#formPage input,#formPage textarea,#formPage select')
 load();updateItemOtherFields();updateAgreementOptions();fillSignatureDates();
 })();
 </script></body></html>
+
 
 
 
